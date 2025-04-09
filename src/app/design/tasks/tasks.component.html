@@ -1,0 +1,24 @@
+<div
+    class="card rounded-xl m-4 text-gray-700 text-18px mx-4 overflow-hidden bg-white shadow-gray-300 shadow-md h-48px flex p-2 justify-between">
+    <div class="flex items-center">
+        <div class="icon h-10 w-10 rounded-full flex items-center justify-center text-48px">
+            {{task.icon}}
+        </div>
+        <p class="text-21px-48px text-24px-48px ml-5 mr-10">{{task.events}}
+            <sub class="text-18px text-gray-500 ml-1">/ {{task.period}}</sub>
+        </p>
+        <p>{{task.details}}</p>
+    </div>
+    <div class="flex items-center">
+        <div class="relative m-2 mx-5">
+            <p class="text-center">{{task.completed}} of {{task.goal}}</p>
+            <div class="bar1 h-1 w-28 rounded bg-blue-200  shadow-gray-300 shadow-24px">
+                <div [style]="'width: '+achieved+'%'"
+                    class="bar2 h-1 rounded bg-gradient-to-l from-green-200 to-blue-500">
+
+                </div>
+            </div>
+        </div>
+        <button class="button text-21px font-bold py-1 px-4 rounded-full hover:bg-gray-200 bg-gray-100 gray--button">Completed</button>
+    </div>
+</div>
