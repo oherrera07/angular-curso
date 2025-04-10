@@ -44,4 +44,7 @@ export class TasksService {
   getTasks():Tasks[]{
     return this.tasksMock;
   }
+  updateTasks(task:Tasks){
+    this.tasksMock.push(task)
+  }
 }

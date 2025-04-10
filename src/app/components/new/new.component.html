@@ -1,6 +1,57 @@
 <section>
-    <div class="card">
-        <form [formGroup]="tasksForm" action="" class="p-4">
+    <div class="card rounded-xl m-4 text-gray-700 text-xs mx-4 bg-white shadow-gray-300 shadow-md overflow-hidden">
+        <form [formGroup]="tasksForm" class="p-4" (ngSubmit)="uploadForm()">
+            <label class="label block uppercase text-xs font-bold mb-6">
+                Describe Your Task
+                <input type="text"
+                    class="input w-full border rounded-xl p-2 focus:outline-none focus:bg-white focus:border-gray-500"
+                    placeholder="ex.52 laps" formControlName="details">
+            </label>
+            <label class="label block uppercase text-xs font-bold mb-6">
+                How often would you like to work on your task? <span>ex.1 time per week</span>
+                <div class="flex mb-6">
+                    <input type="text" formControlName="events"
+                        class="input mr-6 w-full border rounded-xl p-2 focus:outline-none focus:bg-white focus:border-gray-500">
+                    <select
+                        class="input mr-6 w-full border rounded-xl p-2 focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="" id="" formControlName="period">
+                        @for (frequency of frequencies; track frequency) {
+                        <option [value]="frequency">{{frequency}}</option>
+                        }
+                    </select>
+                </div>
+            </label>
+            <label class="label block uppercase text-xs font-bold mb-6">
+                How many times would you like to complete your task?
+                <input type="number"
+                    class="input w-full border rounded-xl p-2 focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="goal">
+            </label>
+            <label class="label block uppercase text-xs font-bold mb-6">
+                Do You Have a Deadline?
+                <input type="date"
+                    class="input w-full border rounded-xl p-2 focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="deadline">
+            </label>
+            <label class="label block uppercase text-xs font-bold mb-6">
+                How many times you have completed this task?
+                <input type="number"
+                    class="input w-full border rounded-xl p-2 focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="completed">
+            </label>
+            <label class="label block uppercase text-xs font-bold mb-6">
+                Choose the icon for your task
+                <select class="input" formControlName="icon" name="" id="">
+                    @for (icon of icons; track icon) {
+                    <option [value]="icon">{{icon}}</option>
+                    }
+
+                </select>
+            </label>
         </form>
+        <div class=" flex justify-between bg-gradient-to-r from-gray-700 via-gray-200 to-gray-200 px-4 py-3">
+            <button class="button black--button text-sm font-bold py-1 px-4 rounded-full text-white hover:bg-gray-800 bg-gray-700" (click)="uploadForm()">Create</button>
+            <button class="button gray--button text-sm font-bold py-1 px-4 rounded-full hover:bg-gray-200 bg-gray-100">Cancel</button>
+        </div>
     </div>
 </section>
